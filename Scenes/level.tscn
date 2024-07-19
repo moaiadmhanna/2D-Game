@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c13pk3jmloy30"]
+[gd_scene load_steps=7 format=3 uid="uid://c13pk3jmloy30"]
 
 [ext_resource type="Script" path="res://Scenes/level.gd" id="1_5pimt"]
 [ext_resource type="Texture2D" uid="uid://cjep6qmtd7tal" path="res://Backgrounds/darkPurple.png" id="1_8y0d6"]
 [ext_resource type="PackedScene" uid="uid://dguxewag0fa27" path="res://Scenes/player.tscn" id="1_pfh27"]
 [ext_resource type="PackedScene" uid="uid://gwkkickpxfow" path="res://Scenes/meteor.tscn" id="2_3xc3r"]
+[ext_resource type="PackedScene" uid="uid://bh2l7s318pfoy" path="res://bullet.tscn" id="5_8m47m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tlyy2"]
 size = Vector2(1372.12, 20)
@@ -15,9 +16,6 @@ script = ExtResource("1_5pimt")
 position = Vector2(653, 377)
 scale = Vector2(6.55859, 3.87109)
 texture = ExtResource("1_8y0d6")
-
-[node name="Meteor" parent="." instance=ExtResource("2_3xc3r")]
-position = Vector2(187, 221)
 
 [node name="Player" parent="." instance=ExtResource("1_pfh27")]
 
@@ -45,4 +43,9 @@ shape = SubResource("RectangleShape2D_tlyy2")
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Bullet" parent="." instance=ExtResource("5_8m47m")]
+
+[node name="Meteors" type="Node2D" parent="."]
+
+[node name="Meteor" parent="Meteors" instance=ExtResource("2_3xc3r")]
+position = Vector2(187, 221)
