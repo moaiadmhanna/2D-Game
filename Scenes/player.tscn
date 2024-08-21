@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/player.gd" id="1_yh1uf"]
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 6
 script = ExtResource("1_yh1uf")
 metadata/Hp = 0
 metadata/stamina = 0
@@ -13,3 +14,11 @@ texture = ExtResource("1_f88sk")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-4, -38, 5, -37, 10, -22, 47, 20, 49, 29, 22, 29, 13, 38, -14, 38, -23, 30, -48, 29, -49, 22, -16, -18, -9, -25)
+
+[node name="LaserStartPos" type="Marker2D" parent="."]
+position = Vector2(0, -43)
+
+[node name="CoolDownTimer" type="Timer" parent="."]
+wait_time = 0.25
+
+[connection signal="timeout" from="CoolDownTimer" to="." method="_on_cool_down_timer_timeout"]

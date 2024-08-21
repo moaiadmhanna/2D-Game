@@ -4,15 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://ccm50fvdr23up" path="res://PNG/Lasers/laserRed14.png" id="2_qt8l1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhx0g"]
-size = Vector2(17, 59)
+size = Vector2(12, 43)
 
 [node name="Bullet" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
 script = ExtResource("1_wk4wv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(394.5, 143.5)
+position = Vector2(0, -21)
 shape = SubResource("RectangleShape2D_vhx0g")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(395, 143)
+position = Vector2(0, -22)
+scale = Vector2(0.730769, 0.745614)
 texture = ExtResource("2_qt8l1")
